@@ -1,0 +1,59 @@
+{
+	"arcgis": {
+		"version": "11.3",
+		"run_as_user": "arcgisservice",
+		"hosts": {
+			"vm-prdcawp-001.spatialitics.net": "192.168.12.43",
+			"vm-prdcawuns-001.spatialitics.net": "192.168.12.47",
+			"vm-prdcawfs-001.spatialitics.net": "192.168.12.40",
+			"vm-prdcawhs-001.spatialitics.net": "192.168.12.41",
+			"vm-prdcawds-001.spatialitics.net": "192.168.12.70",
+			"vm-prdcawwa-001.spatialitics.net": "192.168.12.5",
+			"vm-cawmon-001.spatialitics.net":   "192.168.12.100",
+			"vm-prdcawis-001.spatialitics.net": "192.168.12.46"
+		},
+		"configure_cloud_settings": false,
+		"cache_authorization_files": true,
+		"server": {
+			"domain_name": "vm-prdcawuns-001.spatialitics.net",
+			"hostname": "vm-prdcawuns-001.spatialitics.net",
+			"install_dir": "/home/arcgisservice",
+			"private_url": "https://vm-prdcawuns-001.spatialitics.net:6443/arcgis",
+			"url": "https://vm-prdcawuns-001.spatialitics.net:6443/arcgis",
+			"wa_url": "https://vm-prdcawwa-001.spatialitics.net/unserver",
+			"web_context_url": "https://caw.spatialitics.net//unserver",
+			"admin_username": "siteadmin",
+			"admin_password": "M5qkqA6q",
+			"setup_archive": "/mnt/cawfileshare/arcgis_repo/setup/ArcGIS_Server_Linux_113_190305.tar.gz",
+			"authorization_file": "/mnt/cawfileshare/arcgis_repo/license/ArcGISGISServerAdvanced_ArcGISServer_1521202.prvc",
+			"is_hosting": false,
+			"directories_root": "/mnt/data-disk/arcgisserver",
+			"log_dir": "/mnt/log-disk/arcgisserver/logs",
+			"log_level": "INFO",
+			"config_store_type": "FILESYSTEM",
+			"config_store_connection_string": "/mnt/data-disk/arcgisserver/config-store",
+			"install_system_requirements": true,
+			"keystore_file": "/mnt/cawfileshare/arcgis_repo/ssl/ssl26-27/wildcard_spatialitics_net.pfx",
+			"keystore_password": "123456",
+			"root_cert": "/mnt/cawfileshare/arcgis_repo/ssl/ssl26-27/Root.cer",
+			"root_cert_alias": "root",
+			"wa_name": "unserver",
+			"system_properties": {
+				"enableNosniffHeader": true,
+				"WebContextURL": "https://caw.spatialitics.net/unserver"
+			}
+		},
+		"portal": {
+			"domain_name": "m-prdcawp-001.spatialitics.net",
+			"wa_url": "https://vm-prdcawwa-001.spatialitics.net/portal",
+			"admin_username": "portaladmin",
+			"admin_password": "Ui592Wzi"
+		}
+	},
+	"run_list": [
+		"recipe[arcgis-enterprise::system]",
+		"recipe[arcgis-enterprise::hosts]",
+		"recipe[arcgis-enterprise::server]",
+		"recipe[arcgis-enterprise::federation]"
+	]
+}
