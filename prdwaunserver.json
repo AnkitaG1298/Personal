@@ -1,0 +1,26 @@
+{
+	"arcgis": {
+		"version": "11.3",
+		"run_as_user": "arcgisservice",
+		"configure_cloud_settings": false,
+		"cache_authorization_files": true,
+		"web_server": {
+			"webapp_dir": "/opt/tomcat_arcgis_9.0.83//webapps"
+		},
+		"web_adaptor": {
+			"setup_archive": "/mnt/cawfileshare/arcgis_repo/ArcGIS_Web_Adaptor_Java_Linux_113_190319.tar.gz*",
+			"install_dir": "/home/arcgisservice",
+			"admin_access": true
+		},
+		"server": {
+			"url": "https://vm-prdcawuns-001.spatialitics.net:6443/arcgis",
+			"wa_url": "https://vm-prdcawwa-001.spatialitics.net//unserver",
+			"admin_username": "siteadmin",
+			"admin_password": "M5qkqA6q",
+			"wa_name": "unserver"
+		}
+	},
+	"run_list": [
+		"recipe[arcgis-enterprise::server_wa]"
+	]
+}
